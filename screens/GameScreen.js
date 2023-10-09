@@ -1,15 +1,16 @@
-import {View , StyleSheet} from 'react-native'
+import {View , StyleSheet, Text} from 'react-native'
+import { Title } from '../components/Title'
 export const GameScreen = () => {
   return (
-    <View> this is gamescreen</View>
+    <View style={styles.container}> 
+       <Title> Opponent's Screen</Title>
+        </View>
   )
 }
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
     container:{
         flex: 1,
-        justifyContent: 'center',
-        alignContent: 'center',
-        alignItems: 'center'
+        padding: 24
     }
 })

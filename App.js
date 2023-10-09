@@ -3,6 +3,8 @@ import { StatusBar } from 'expo-status-bar';
 import { ImageBackground, StyleSheet, Text, View } from 'react-native';
 import { StartGameScreen } from './screens/StartGameScreen';
 import { LinearGradient } from 'expo-linear-gradient';
+import { GameScreen } from './screens/GameScreen';
+import { SafeAreaView } from 'react-native';
 export default function App() {
   const [pickedNumber, setPickedNumber] = useState()
 
@@ -23,7 +25,7 @@ if (pickedNumber){
       style={styles.container}
       imageStyle={styles.backgroundImage}
       resizeMode='cover'>
-      {screen}
+     <SafeAreaView style={styles.container}>{screen}</SafeAreaView> 
       </ImageBackground>   
       <StatusBar style="auto" />
     </LinearGradient>
