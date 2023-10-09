@@ -16,7 +16,6 @@ export const StartGameScreen = () => {
          <PrimaryButton>Confirm</PrimaryButton>
          </View>
          </View>
-        
     </View>
   )
 }
