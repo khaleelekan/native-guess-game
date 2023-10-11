@@ -12,8 +12,7 @@ export const Title = ({children}) => {
 const styles = StyleSheet.create({
     title:{
         fontSize: 24,
-        fontStyle: 'italic',
-        fontWeight: 'bold',
+        fontFamily: 'open-sansbold',
         color: '#ddb52f',
         textAlign: 'center',
         borderWidth: 2,

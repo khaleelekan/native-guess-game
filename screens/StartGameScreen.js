@@ -58,7 +58,8 @@ const styles = StyleSheet.create({
     },
     text:{
       fontSize:20,
-      color: 'white'
+      color: 'white',
+      fontFamily: 'open-sansbold'
     },
   
     numberInput: {

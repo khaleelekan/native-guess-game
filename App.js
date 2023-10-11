@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useFonts } from 'expo-font';
+import AppLoading from 'expo-app-loading';
 import { StatusBar } from 'expo-status-bar';
 import { ImageBackground, StyleSheet, Text, View } from 'react-native';
 import { StartGameScreen } from './screens/StartGameScreen';
@@ -26,7 +28,14 @@ if (pickedNumber){
 if (pickedNumber && gameOver){
   screen = <GameOverScreen/>
 }
+const [fontsLoaded] = useFonts({
+  'open-sansbold': require('./assets/fonts/OpenSans-Bold.ttf'),
+  'open-sansregular': require('./assets/fonts/OpenSans-Regular.ttf')
+})
 
+if (!fontsLoaded){
+  return <AppLoading/>
+}
   return (
    
     <LinearGradient 
