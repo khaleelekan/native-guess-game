@@ -17,8 +17,9 @@ export default function App() {
     setPickedNumber(passedNumber)
     setGameOver(false)
   }
-  function gameOverHandler (){
+  function gameOverHandler (numberOfGuesses){
     setGameOver(true);
+    setRounds(numberOfGuesses)
   }
   function newGameHandler (){
     setPickedNumber(null);
