@@ -1,7 +1,8 @@
 import { useState } from "react"
-import { TextInput, StyleSheet,View, Alert, Button } from "react-native"
+import { TextInput, StyleSheet,View, Alert,Text } from "react-native"
 import { PrimaryButton } from "../components/PrimaryButton"
-
+import { Title } from "../components/Title"
+import {Card} from '../components/Card'
 export const StartGameScreen = ({onPicked}) => {
   const [enteredNumber, setEnteredNumber] = useState('')
   
@@ -13,6 +14,7 @@ export const StartGameScreen = ({onPicked}) => {
   }
   function confirmHandler (){
     const chosenNumber = parseInt(enteredNumber)
+    onPicked()
 
     if (isNaN(chosenNumber) || chosenNumber <= 0 || chosenNumber > 99 ){
       Alert.alert(
@@ -24,7 +26,12 @@ export const StartGameScreen = ({onPicked}) => {
     }
   }
   return (
-    <View style={styles.inputContainer}>
+    <View>
+      <View style={styles.title}>
+      <Title >GUESS A NUMBER</Title>
+      </View>
+    <Card>
+      <Text style={styles.text}>Enter a number</Text>
         <TextInput style={styles.numberInput}
          maxLength={2}
          keyboardType="number-pad"
@@ -39,24 +46,21 @@ export const StartGameScreen = ({onPicked}) => {
          <PrimaryButton onPress={confirmHandler}>Confirm</PrimaryButton>
          </View>
          </View>
+    </Card>
     </View>
   )
 }
 
 const styles = StyleSheet.create({
-    inputContainer:{
-       alignItems:'center',
-        marginTop:100,
-        marginHorizontal: 24,
-        padding: 16,
-        backgroundColor: '#72063c',
-        borderRadius: 8,
-        elevation: 4,
-        shadowColor: 'black',
-        shadowOffset: { width: 0, height: 2 },
-        shadowRadius: 6,
-        shadowOpacity: 0.5
+    title:{
+      marginTop: 100,
+      alignItems: 'center'
     },
+    text:{
+      fontSize:20,
+      color: 'white'
+    },
+  
     numberInput: {
         height: 50,
         width: 50,
@@ -64,6 +68,7 @@ const styles = StyleSheet.create({
         borderBottomWidth: 2,
         color: '#ddb52f',
         marginVertical: 8,
+        fontSize: 30,
         fontWeight: "bold",
         textAlign: "center"
         

@@ -12,6 +12,7 @@ export default function App() {
 
   function numberHandler (passedNumber) {
     setPickedNumber(passedNumber)
+    setGameOver(false)
   }
   function gameOverHandler (){
     setGameOver(true);
@@ -22,7 +23,7 @@ if (pickedNumber){
   pickedNumber={pickedNumber} 
   onGameOver={gameOverHandler}/>
 }
-if (gameOver){
+if (pickedNumber && gameOver){
   screen = <GameOverScreen/>
 }
 
