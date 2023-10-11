@@ -30,4 +30,4 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontFamily: 'open-sansbold'
   }
-})
+}) 

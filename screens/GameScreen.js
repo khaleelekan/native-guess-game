@@ -28,6 +28,11 @@ export const GameScreen = ({pickedNumber, onGameOver}) => {
         }
 
     },[currentGuess, pickedNumber,onGameOver])
+
+    useEffect(()=>{
+      minBoundary=1;
+      maxBoundary=100;
+    }, []);
     function nextGuessHandler(direction){
       if(
         (direction === 'lower' && currentGuess < pickedNumber)
