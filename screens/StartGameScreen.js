@@ -1,5 +1,6 @@
 import { useState } from "react"
-import { TextInput, StyleSheet,View, Alert,Text ,useWindowDimensions} from "react-native"
+import { TextInput, StyleSheet,
+  View, Alert,Text ,useWindowDimensions,ScrollView,KeyboardAvoidingView} from "react-native"
 import { PrimaryButton } from "../components/PrimaryButton"
 import { Title } from "../components/Title"
 import {Card} from '../components/Card'
@@ -28,7 +29,9 @@ export const StartGameScreen = ({onPicked}) => {
   }
   const marginTopGap = height < 380 ? 30 : 100;
   return (
-    <View style={[styles.rootContainer,{marginTop: marginTopGap}]}>
+    <ScrollView style={styles.screen}>
+    <KeyboardAvoidingView style={styles.screen} behavior="position">
+    <View style={[styles.rootContainer,{marginTop: 'marginTopGap'}]}>
       <View style={styles.title}>
       <Title >GUESS A NUMBER</Title>
       </View>
@@ -50,10 +53,15 @@ export const StartGameScreen = ({onPicked}) => {
          </View>
     </Card>
     </View>
+    </KeyboardAvoidingView>
+    </ScrollView>
   )
 }
 
 const styles = StyleSheet.create({
+  screen:{
+    flex:1
+  },
     rootContainer:{
       flex: 1,
       alignItems: 'center',

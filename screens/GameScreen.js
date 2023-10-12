@@ -1,4 +1,4 @@
-import {View , StyleSheet, Text, Alert, FlatList} from 'react-native'
+import {View , StyleSheet, Text, Alert, FlatList, ScrollView} from 'react-native'
 import { Title } from '../components/Title'
 import { useState,useEffect } from 'react';
 import {PrimaryButton} from '../components/PrimaryButton'
@@ -56,6 +56,7 @@ export const GameScreen = ({pickedNumber, onGameOver}) => {
     }
     const roundsLength = rounds.length
   return (
+    <ScrollView>
     <View style={styles.container}> 
        <Title> Opponent's Screen</Title>
        <NumberContainer>{currentGuess}</NumberContainer>
@@ -82,10 +83,14 @@ export const GameScreen = ({pickedNumber, onGameOver}) => {
         keyExtractor={(item)=>item} />
         </View>
         </View>
+        </ScrollView>
   )
 }
 
 const styles = StyleSheet.create({
+  screen:{
+    flex: 1,
+  },
     container:{
         flex:1,
         padding: 24
