@@ -1,11 +1,12 @@
 import { useState } from "react"
-import { TextInput, StyleSheet,View, Alert,Text } from "react-native"
+import { TextInput, StyleSheet,View, Alert,Text ,useWindowDimensions} from "react-native"
 import { PrimaryButton } from "../components/PrimaryButton"
 import { Title } from "../components/Title"
 import {Card} from '../components/Card'
 export const StartGameScreen = ({onPicked}) => {
   const [enteredNumber, setEnteredNumber] = useState('')
   
+  const {width, height} = useWindowDimensions()
   function inputHandler (inputedNumber){
     setEnteredNumber(inputedNumber)
   }
@@ -25,8 +26,9 @@ export const StartGameScreen = ({onPicked}) => {
     onPicked(chosenNumber)
     }
   }
+  const marginTopGap = height < 380 ? 30 : 100;
   return (
-    <View>
+    <View style={[styles.rootContainer,{marginTop: marginTopGap}]}>
       <View style={styles.title}>
       <Title >GUESS A NUMBER</Title>
       </View>
@@ -52,6 +54,11 @@ export const StartGameScreen = ({onPicked}) => {
 }
 
 const styles = StyleSheet.create({
+    rootContainer:{
+      flex: 1,
+      alignItems: 'center',
+
+    },
     title:{
       marginTop: 100,
       alignItems: 'center'
